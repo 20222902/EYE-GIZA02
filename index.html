@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EYE-GIZA</title>
+    <!-- Favicon -->
+    <link rel="icon" href="logo.PNG" type="image/png">
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Google Fonts (Cairo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #1E3A8A;
+            color: #ffffff;
+            padding-top: 100px;
+        }
+        
+        .logo-img {
+            height: 80px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .logo-img:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+        
+        .navbar {
+            min-height: 100px;
+            background-color: #1E3A8A;
+            border-bottom: 1px solid #3B82F6;
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .brand-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* أنماط خاصة بقسم "مين احنا" */
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .service-icon-container {
+    width: 180px;
+    height: 180px;
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+        
+        .service-icon {
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-icon-container:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5);
+    transform: scale(1.05);
+}
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .mobile-menu-button {
+            display: none;
+        }
+        
+        .mobile-nav-links {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 90px;
+            }
+            
+            .logo-img {
+                height: 150px;
+            }
+            
+            .brand-text {
+                font-size: 1.3rem;
+            }
+            
+            .navbar {
+                min-height: 90px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            .mobile-nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1E3A8A;
+                flex-direction: column;
+                padding: 1rem;
+                border-bottom: 1px solid #3B82F6;
+            }
+            
+            .mobile-nav-links.active {
+                display: flex;
+            }
+            
+            .nav-link {
+                padding: 0.75rem;
+                text-align: center;
+            }
+            
+            .service-icon-container {
+                width: 140px;
+                height: 140px;
+                padding: 1rem;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .logo-img {
+                height: 150px;
+            }
+            
+            .brand-text {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .service-icon-container {
+                width: 200px;
+                height: 200px;
+            }
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero-section {
+            min-height: calc(100vh - 100px);
+        }
+        
+        footer {
+            background-color: #1E3A8A;
+            border-top: 1px solid #3B82F6;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="navbar text-white fixed w-full top-0 left-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center navbar-brand">
+                <img src="logo.PNG" alt="EYE Logo" class="logo-img">
+                <span class="brand-text text-white"></span>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button class="mobile-menu-button md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            
+            <!-- Desktop menu -->
+            <div class="nav-links hidden md:flex">
+                <a href="index.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-900">EYE-GIZA</a>
+                <a href="leaders.html" class="nav-link block px-3 py-2 rounded bg-blue-900 font-semibold">Administrative Structure</a>
+                <a href="events.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-900">Events</a>
+                <a href="about.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-900">About Us</a>
+                <a href="contact.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-900">Contact Us</a>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="mobile-nav-links">
+            <a href="index.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-900">EYE-GIZA</a>
+            <a href="leaders.html" class="nav-link block px-3 py-2 rounded bg-blue-900 font-semibold">Administrative Structure</a>
+            <a href="events.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-900">Events</a>
+            <a href="about.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-900">About Us</a>
+            <a href="contact.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-900">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section relative flex items-center justify-center pt-16 pb-20">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                 alt="Background" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="relative z-10 text-center p-4 md:p-8 fade-in">
+            <div class="mb-8 flex justify-center">
+                <img src="logo.PNG" alt="EYE Logo" class="logo-img" style="height: 520px;">
+            </div>
+            
+            <h1 class="hero-title text-4xl md:text-6xl font-bold mb-4">WELCOME TO EYE GIZA</h1>
+            <p class="hero-subtitle text-lg md:text-xl mb-8 text-blue-100">TO ADD VALUE</p>
+            <div class="hero-buttons flex flex-col md:flex-row justify-center gap-4">
+                <a href="leaders.html" 
+                   class="hero-button mx-auto md:mx-0 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-3 px-6 md:px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+                    تعرف على فريقنا
+                </a>
+                <a href="contact.html" 
+                   class="hero-button mx-auto md:mx-0 bg-white text-blue-800 hover:bg-gray-100 font-bold py-3 px-6 md:px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-12 md:py-20 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-20">مين احنا</h2>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="card service-card fade-in" style="animation-delay: 0.1s;">
+                    <div class="service-icon-container">
+                        <img src="Social Media.PNG" alt="Social Media" class="service-icon">
+                    </div>
+                    <h3 class="service-title">Social Media</h3>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="card service-card fade-in" style="animation-delay: 0.3s;">
+                    <div class="service-icon-container">
+                        <img src="Public Relation.PNG" alt="Public Relation" class="service-icon">
+                    </div>
+                    <h3 class="service-title">Public Relation</h3>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="card service-card fade-in" style="animation-delay: 0.5s;">
+                    <div class="service-icon-container">
+                        <img src="Organization.PNG" alt="Organization" class="service-icon">
+                    </div>
+                    <h3 class="service-title">Organization</h3>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="card service-card fade-in" style="animation-delay: 0.7s;">
+                    <div class="service-icon-container">
+                        <img src="Human Resources.PNG" alt="Human Resources" class="service-icon">
+                    </div>
+                    <h3 class="service-title">Human Resources</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8 px-4 border-t border-blue-700">
+        <div class="container mx-auto flex flex-col items-center">
+            <img src="logo.PNG" alt="EYE Logo" class="logo-img mb-4" style="height: 80px;">
+            <div class="footer-links flex gap-4 md:gap-6 mb-4">
+                <a href="index.html" class="hover:text-blue-300">EYE-GIZA</a>
+                <a href="leaders.html" class="hover:text-blue-300">Administrative Structure</a>
+                <a href="events.html" class="hover:text-blue-300">Events</a>
+                <a href="about.html" class="hover:text-blue-300">About Us</a>
+                <a href="contact.html" class="hover:text-blue-300">Contact Us</a>
+            </div>
+            <p class="footer-text text-base md:text-lg">&copy; 2025 EYE. جميع الحقوق محفوظة.</p>
+            <p class="footer-text text-blue-300 mt-2 text-base md:text-lg">تصميم بواسطة فريق الجيزة</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileNavLinks = document.querySelector('.mobile-nav-links');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileNavLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
